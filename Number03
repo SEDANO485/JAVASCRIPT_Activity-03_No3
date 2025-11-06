@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Java Script Day03</title>
+</head>
+<body>
+  <h2>JavaScript Day03 Activity No.3</h2>
+  <input type="number" id="numberInput" placeholder="Enter an odd number" />
+  <button onclick="generateXPattern()">Execute</button>
+  <pre id="output"></pre>
+
+  <script>
+    function generateXPattern() {
+      var numPatterns = parseInt(document.getElementById("numberInput").value);
+      var output = document.getElementById("output");
+
+      if (isNaN(numPatterns) || numPatterns < 1 || numPatterns % 2 === 0) {
+        output.innerText = "Please enter a non-negative odd number.";
+        return;
+      }
+
+      var pattern = "";
+
+      for (var i = 0; i < numPatterns; i++) {
+        var line = "";
+        for (var j = 0; j < numPatterns; j++) {
+          if (j === i || j === numPatterns - 1 - i) {
+            line += "*";
+          } else {
+            line += " ";
+          }
+        }
+        pattern += line + "\n";
+      }
+
+      output.innerText = pattern;
+    }
+  </script>
+</body>
+</html>
